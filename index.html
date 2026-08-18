@@ -21,7 +21,7 @@
     --brown-soft: #6b4d47;
     --ink: #1f1420;
     --ink-soft: #5c4f58;
-    --bg: #fffaf9;
+    --bg: #ffffff;
     --card-bg: #ffffff;
     --border: #f0dde6;
     --success: #1f8a5c;
@@ -30,7 +30,7 @@
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
 
-  html { scroll-behavior: smooth; overflow-x: hidden; }
+  html { scroll-behavior: smooth; }
 
   body {
     font-family: 'Bricolage Grotesque', system-ui, -apple-system, sans-serif;
@@ -38,7 +38,6 @@
     background: var(--bg);
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
-    overflow-x: hidden;
   }
 
   img { max-width: 100%; display: block; }
@@ -53,19 +52,34 @@
 
   /* ---------- Nav ---------- */
   header.site-header {
-    padding: 1.25rem 0;
     position: sticky;
     top: 0;
-    background: rgba(255, 250, 249, 0.9);
-    backdrop-filter: blur(8px);
-    z-index: 10;
-    border-bottom: 1px solid var(--border);
+    z-index: 50;
+    padding: 16px 20px 0;
+    pointer-events: none;
   }
 
   .nav-inner {
+    pointer-events: auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 1rem;
+    max-width: 560px;
+    padding: 0.7rem 0.85rem 0.7rem 1.25rem;
+    border-radius: 999px;
+    background: rgba(255, 250, 249, 0.7);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    box-shadow:
+      0 10px 30px -12px rgba(31, 20, 32, 0.2),
+      0 2px 10px -4px rgba(31, 20, 32, 0.1);
+  }
+
+  @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+    .nav-inner {
+      background: #fffaf9;
+    }
   }
 
   .logo {
@@ -78,6 +92,25 @@
     height: 26px;
     width: auto;
     display: block;
+  }
+
+  .nav-links {
+    display: none;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    color: var(--ink-soft);
+    font-weight: 600;
+    font-size: 0.9rem;
+    white-space: nowrap;
+  }
+
+  .nav-links a:hover,
+  .nav-links a.active {
+    color: var(--primary);
   }
 
   .nav-cta {
@@ -95,6 +128,7 @@
   /* ---------- Hero ---------- */
   .hero {
     padding: 3rem 0 2.5rem;
+    overflow-x: hidden;
   }
 
   .hero-inner {
@@ -475,6 +509,10 @@
 
   /* ---------- Larger screens ---------- */
   @media (min-width: 720px) {
+    .nav-links {
+      display: flex;
+    }
+
     .hero-inner {
       flex-direction: row;
       text-align: left;
@@ -515,7 +553,11 @@
 <header class="site-header">
   <div class="wrap nav-inner">
     <a class="logo" href="#top"><img src="images/scoff-logo.svg" alt="Scoff"></a>
-    <a class="nav-cta" href="#download">Get the app</a>
+    <nav class="nav-links">
+      <a href="about.html">About</a>
+      <a href="faq.html">FAQ</a>
+    </nav>
+    <a class="nav-cta" href="https://apps.apple.com/au/app/scoff/id6780077468">Get the app</a>
   </div>
 </header>
 
@@ -527,7 +569,7 @@
         <h1>Track calories<br><span>without the faff.</span></h1>
         <p class="tagline">Log it. Know it. Scoff on.</p>
         <p class="pitch">Scoff is a calorie tracker built in Australia, for Australia — with Aussie restaurant menus, NUTTAB food data, and kilojoules shown alongside calories. Scan a barcode, snap a meal, and you're done in seconds.</p>
-        <a id="download" class="store-btn" href="#" aria-label="Download Scoff on the App Store">
+        <a id="download" class="store-btn" href="https://apps.apple.com/au/app/scoff/id6780077468" aria-label="Download Scoff on the App Store">
           <img src="images/appstore-badge.svg" alt="Download on the App Store">
         </a>
       </div>
@@ -662,7 +704,7 @@
             <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Custom goals &amp; daily reminders</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Save up to 3 meals</li>
           </ul>
-          <a class="plan-cta" href="#download">Download free</a>
+          <a class="plan-cta" href="https://apps.apple.com/au/app/scoff/id6780077468">Download free</a>
         </div>
         <div class="plan-card premium-card">
           <span class="plan-badge">Most popular</span>
@@ -678,7 +720,7 @@
             <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Extra custom meal slots</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Instagram story sharing</li>
           </ul>
-          <a class="plan-cta" href="#download">Try Premium</a>
+          <a class="plan-cta" href="https://apps.apple.com/au/app/scoff/id6780077468">Try Premium</a>
         </div>
       </div>
       <p class="compare-note">Prices in AUD. Auto-renews; cancel anytime in the App Store.</p>
@@ -690,7 +732,7 @@
     <div class="wrap">
       <h2>Ready to scoff smarter?</h2>
       <p>Free to download. Free to start.</p>
-      <a class="store-btn" href="#" aria-label="Download Scoff on the App Store">
+      <a class="store-btn" href="https://apps.apple.com/au/app/scoff/id6780077468" aria-label="Download Scoff on the App Store">
         <img src="images/appstore-badge-white.svg" alt="Download on the App Store">
       </a>
     </div>
@@ -700,6 +742,7 @@
 <footer>
   <div class="wrap footer-inner">
     <div class="footer-links">
+      <a href="about.html">About</a>
       <a href="support.html">Support</a>
       <a href="faq.html">FAQ</a>
       <a href="privacy.html">Privacy Policy</a>
