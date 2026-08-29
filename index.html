@@ -14,16 +14,18 @@
 <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root {
-    --primary: #B82469;
-    --primary-dark: #8f1c53;
-    --primary-light: #f6d9e7;
     --brown: #472E2A;
+    --brown-dark: #2f1f1c;
     --brown-soft: #6b4d47;
+    --cream: #fdf8f3;
+    --blue: #afc7ec;
+    --blue-dark: #5c7ab8;
+    --yellow: #f6efa6;
     --ink: #1f1420;
     --ink-soft: #5c4f58;
-    --bg: #ffffff;
+    --bg: #fdf8f3;
     --card-bg: #ffffff;
-    --border: #f0dde6;
+    --border: #ede6e1;
     --success: #1f8a5c;
     --max-width: 1120px;
   }
@@ -110,12 +112,12 @@
 
   .nav-links a:hover,
   .nav-links a.active {
-    color: var(--primary);
+    color: var(--blue-dark);
   }
 
   .nav-cta {
     display: inline-block;
-    background: var(--primary);
+    background: var(--brown);
     color: #fff;
     font-weight: 600;
     font-size: 0.9rem;
@@ -147,7 +149,7 @@
   }
 
   .hero h1 span {
-    color: var(--primary);
+    color: var(--brown);
   }
 
   .hero .tagline {
@@ -171,7 +173,7 @@
     display: inline-block;
     line-height: 0;
     transition: transform 0.15s ease;
-    filter: drop-shadow(0 6px 18px rgba(184, 36, 105, 0.18));
+    filter: drop-shadow(0 6px 18px rgba(71, 46, 42, 0.18));
   }
 
   .store-btn:hover { transform: translateY(-2px); }
@@ -189,11 +191,11 @@
   .phone-frame {
     position: absolute;
     aspect-ratio: 9 / 19.5;
-    background: linear-gradient(160deg, var(--primary-light), #fff);
+    background: linear-gradient(160deg, var(--blue), #fff);
     border: 7px solid #111;
     border-radius: 2rem;
     overflow: hidden;
-    box-shadow: 0 20px 45px -20px rgba(184, 36, 105, 0.35);
+    box-shadow: 0 20px 45px -20px rgba(71, 46, 42, 0.35);
   }
 
   .phone-frame img {
@@ -267,7 +269,7 @@
     width: 52px;
     height: 52px;
     border-radius: 14px;
-    background: var(--primary-light);
+    background: var(--blue);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -277,7 +279,7 @@
   .feature-icon svg {
     width: 26px;
     height: 26px;
-    stroke: var(--primary);
+    stroke: var(--brown);
   }
 
   .feature-item h3 {
@@ -316,8 +318,8 @@
   }
 
   .plan-card.premium-card {
-    border-color: var(--primary);
-    background: var(--primary-light);
+    border-color: var(--brown);
+    background: var(--yellow);
   }
 
   .plan-badge {
@@ -326,7 +328,7 @@
     top: -0.7rem;
     left: 50%;
     transform: translateX(-50%);
-    background: var(--primary);
+    background: var(--brown);
     color: #fff;
     font-size: 0.65rem;
     font-weight: 700;
@@ -345,7 +347,7 @@
   }
 
   .premium-card .plan-name {
-    color: var(--primary-dark);
+    color: var(--brown);
   }
 
   .plan-price {
@@ -412,7 +414,7 @@
   }
 
   .premium-card .plan-cta {
-    background: var(--primary);
+    background: var(--brown);
     color: #fff;
   }
 
