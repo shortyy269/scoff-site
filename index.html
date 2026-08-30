@@ -52,6 +52,16 @@
     padding: 0 1.25rem;
   }
 
+  /* ---------- Announcement bar ---------- */
+  .announcement-bar {
+    background: var(--yellow);
+    color: var(--brown);
+    text-align: center;
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 0.7rem 1.25rem;
+  }
+
   /* ---------- Nav ---------- */
   header.site-header {
     position: sticky;
@@ -59,6 +69,7 @@
     z-index: 50;
     padding: 16px 20px 0;
     pointer-events: none;
+    background: #dbe7fa;
   }
 
   .nav-inner {
@@ -70,30 +81,30 @@
     max-width: 560px;
     padding: 0.7rem 0.85rem 0.7rem 1.25rem;
     border-radius: 999px;
-    background: rgba(255, 250, 249, 0.7);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
+    background: #ffffff;
     box-shadow:
-      0 10px 30px -12px rgba(31, 20, 32, 0.2),
-      0 2px 10px -4px rgba(31, 20, 32, 0.1);
-  }
-
-  @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
-    .nav-inner {
-      background: #fffaf9;
-    }
+      0 10px 30px -12px rgba(31, 20, 32, 0.15),
+      0 2px 10px -4px rgba(31, 20, 32, 0.08);
   }
 
   .logo {
     display: inline-flex;
     align-items: center;
+    gap: 0.2rem;
     text-decoration: none;
   }
 
   .logo img {
-    height: 34px;
+    height: 28px;
     width: auto;
     display: block;
+  }
+
+  .logo-text {
+    font-weight: 800;
+    font-size: 1.4rem;
+    letter-spacing: -0.02em;
+    color: var(--brown);
   }
 
   .nav-links {
@@ -129,97 +140,121 @@
 
   /* ---------- Hero ---------- */
   .hero {
-    padding: 3rem 0 2.5rem;
+    padding: 3rem 0 3.5rem;
     overflow-x: hidden;
+    background: linear-gradient(180deg, #dbe7fa 0%, var(--bg) 100%);
   }
 
   .hero-inner {
     display: flex;
     flex-direction: column;
-    gap: 2.5rem;
     align-items: center;
     text-align: center;
   }
 
   .hero h1 {
-    font-size: clamp(2.2rem, 8vw, 3.4rem);
+    font-size: clamp(2.1rem, 6vw, 3rem);
     font-weight: 800;
     letter-spacing: -0.03em;
-    line-height: 1.05;
+    line-height: 1.15;
+    max-width: 20ch;
   }
 
-  .hero h1 span {
-    color: var(--brown);
-  }
-
-  .hero .tagline {
-    margin-top: 0.9rem;
-    font-size: clamp(1.1rem, 4vw, 1.4rem);
-    font-weight: 600;
-    color: var(--ink);
+  .hero h1 .light {
+    font-weight: 400;
   }
 
   .hero .pitch {
-    margin-top: 0.75rem;
+    margin-top: 1.1rem;
     font-size: 1.05rem;
     color: var(--ink-soft);
     max-width: 34rem;
-    margin-left: auto;
-    margin-right: auto;
   }
 
-  .store-btn {
+  .download-btn {
     margin-top: 1.75rem;
     display: inline-block;
-    line-height: 0;
-    transition: transform 0.15s ease;
-    filter: drop-shadow(0 6px 18px rgba(71, 46, 42, 0.18));
+    background: var(--brown);
+    color: #fff;
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 0.9rem 2.2rem;
+    border-radius: 999px;
+    text-decoration: none;
+    transition: background 0.15s ease, transform 0.15s ease;
+    box-shadow: 0 10px 25px -10px rgba(71, 46, 42, 0.4);
   }
 
-  .store-btn:hover { transform: translateY(-2px); }
+  .download-btn:hover {
+    background: var(--brown-dark);
+    transform: translateY(-2px);
+  }
 
-  .store-btn img { height: 48px; display: block; }
+  .free-forever {
+    margin-top: 0.65rem;
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+  }
 
-  .hero-shots {
-    position: relative;
+  .hero-phone {
     width: 100%;
-    max-width: 400px;
-    aspect-ratio: 1 / 1.15;
-    margin: 0 auto;
-  }
-
-  .phone-frame {
-    position: absolute;
+    max-width: 320px;
+    margin: 2.75rem auto 0;
     aspect-ratio: 9 / 19.5;
     background: linear-gradient(160deg, var(--blue), #fff);
     border: 7px solid #111;
     border-radius: 2rem;
     overflow: hidden;
-    box-shadow: 0 20px 45px -20px rgba(71, 46, 42, 0.35);
+    box-shadow: 0 25px 50px -20px rgba(71, 46, 42, 0.35);
   }
 
-  .phone-frame img {
+  .hero-phone img {
     width: 100%;
     height: 100%;
     object-fit: cover;
   }
 
-  .phone-center {
-    width: 60%;
-    left: 50%;
-    top: 0;
-    transform: translateX(-50%);
-    z-index: 3;
+  /* ---------- Hero gallery ---------- */
+  .hero-gallery {
+    padding: 0 0 3rem;
   }
 
-  .phone-side {
-    width: 54%;
-    top: 9%;
-    z-index: 1;
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    max-width: 900px;
+    margin: 0 auto;
   }
 
-  .phone-left { left: -5%; }
-  .phone-right { right: -5%; }
+  .gallery-card {
+    border-radius: 20px;
+    overflow: hidden;
+    aspect-ratio: 9 / 16;
+    background: var(--border);
+    box-shadow: 0 15px 35px -20px rgba(31, 20, 32, 0.3);
+  }
+
+  .gallery-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .gallery-card.gallery-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 1.5rem;
+    background: var(--card-bg);
+    border: 1px dashed var(--border);
+    color: var(--ink-soft);
+    font-size: 0.85rem;
+    font-weight: 600;
+    box-shadow: none;
+  }
 
   /* ---------- Features ---------- */
   .features {
@@ -430,6 +465,17 @@
     padding: 2rem 0 3.5rem;
   }
 
+  .store-btn {
+    margin-top: 1.5rem;
+    display: inline-block;
+    line-height: 0;
+    transition: transform 0.15s ease;
+  }
+
+  .store-btn:hover { transform: translateY(-2px); }
+
+  .store-btn img { height: 48px; display: block; }
+
   .final-cta .wrap {
     background: var(--brown);
     border-radius: 28px;
@@ -515,24 +561,9 @@
       display: flex;
     }
 
-    .hero-inner {
-      flex-direction: row;
-      text-align: left;
-      justify-content: space-between;
-      gap: 3rem;
+    .gallery-grid {
+      grid-template-columns: repeat(3, 1fr);
     }
-
-    .hero-copy { flex: 1; }
-    .hero .pitch { margin-left: 0; }
-    .store-btn { }
-
-    .hero-shots {
-      flex-shrink: 0;
-      max-width: 360px;
-    }
-
-    .phone-left { left: -12%; }
-    .phone-right { right: -12%; }
 
     .feature-columns {
       grid-template-columns: repeat(2, 1fr);
@@ -546,18 +577,22 @@
 
   @media (min-width: 960px) {
     .hero { padding: 5rem 0 4rem; }
-    .hero-shots { max-width: 400px; }
   }
 </style>
 </head>
 <body>
 
+<div class="announcement-bar">Try our premium trial for 2 weeks free</div>
+
 <header class="site-header">
   <div class="wrap nav-inner">
-    <a class="logo" href="#top"><img src="images/scoff-logo.svg" alt="Scoff"></a>
+    <a class="logo" href="#top">
+      <img src="images/scoff-logo.svg" alt="Scoff">
+      <span class="logo-text" aria-hidden="true">COFF</span>
+    </a>
     <nav class="nav-links">
-      <a href="about.html">About</a>
-      <a href="faq.html">FAQ</a>
+      <a href="about.html">Our Story</a>
+      <a href="faq.html">FAQs</a>
     </nav>
     <a class="nav-cta" href="https://apps.apple.com/au/app/scoff/id6780077468" target="_blank" rel="noopener">Get the app</a>
   </div>
@@ -567,23 +602,28 @@
   <!-- Hero -->
   <section class="hero">
     <div class="wrap hero-inner">
-      <div class="hero-copy">
-        <h1>Track calories<br><span>without the faff.</span></h1>
-        <p class="tagline">Log it. Know it. Scoff on.</p>
-        <p class="pitch">Scoff is a calorie tracker built in Australia, for Australia — with Aussie restaurant menus, NUTTAB food data, and kilojoules shown alongside calories. Scan a barcode, snap a meal, and you're done in seconds.</p>
-        <a id="download" class="store-btn" href="https://apps.apple.com/au/app/scoff/id6780077468" aria-label="Download Scoff on the App Store">
-          <img src="images/appstore-badge.svg" alt="Download on the App Store">
-        </a>
+      <h1><span class="light">Your new</span> calorie and macro tracking app</h1>
+      <p class="pitch">Scan barcodes, log meals from 5+ Aussie food chains, build custom meals &amp; more</p>
+      <a id="download" class="download-btn" href="https://apps.apple.com/au/app/scoff/id6780077468" target="_blank" rel="noopener">Download on iOS</a>
+      <p class="free-forever">Free forever</p>
+      <div class="hero-phone">
+        <img src="images/hero-screenshot.png" alt="Screenshot of the Scoff app showing a day's logged meals and calorie progress">
       </div>
-      <div class="hero-shots">
-        <div class="phone-frame phone-side phone-left">
+    </div>
+  </section>
+
+  <!-- Hero gallery -->
+  <section class="hero-gallery">
+    <div class="wrap">
+      <div class="gallery-grid">
+        <div class="gallery-card">
           <img src="images/hero-saved-meal.png" alt="Screenshot of a saved meal in Scoff showing calories and macros">
         </div>
-        <div class="phone-frame phone-center">
-          <img src="images/hero-screenshot.png" alt="Screenshot of the Scoff app showing a day's logged meals and calorie progress">
-        </div>
-        <div class="phone-frame phone-side phone-right">
+        <div class="gallery-card">
           <img src="images/hero-restaurant-menu.png" alt="Screenshot of the Guzman y Gomez restaurant menu in Scoff">
+        </div>
+        <div class="gallery-card gallery-placeholder">
+          <span>More screenshots coming soon</span>
         </div>
       </div>
     </div>
