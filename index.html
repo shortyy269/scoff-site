@@ -11,796 +11,321 @@
 <meta name="description" content="Scoff is a calorie and kilojoule tracker built in Australia — with Aussie restaurant menus, NUTTAB food data, and kilojoules alongside calories. Scan a barcode and log meals in seconds.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --brown: #472E2A;
-    --brown-dark: #2f1f1c;
-    --brown-soft: #6b4d47;
-    --cream: #fdf8f3;
-    --blue: #afc7ec;
-    --blue-dark: #5c7ab8;
-    --yellow: #f6efa6;
-    --ink: #1f1420;
-    --ink-soft: #5c4f58;
-    --bg: #fdf8f3;
-    --card-bg: #ffffff;
-    --border: #ede6e1;
-    --success: #1f8a5c;
-    --max-width: 1120px;
-  }
-
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-    color: var(--ink);
-    background: var(--bg);
-    line-height: 1.5;
-    -webkit-font-smoothing: antialiased;
-  }
-
-  img { max-width: 100%; display: block; }
-
-  a { color: inherit; }
-
-  .wrap {
-    max-width: var(--max-width);
-    margin: 0 auto;
-    padding: 0 1.25rem;
-  }
-
-  /* ---------- Announcement bar ---------- */
-  .announcement-bar {
-    background: var(--yellow);
-    color: var(--brown);
-    text-align: center;
-    font-weight: 600;
-    font-size: 0.9rem;
-    padding: 0.7rem 1.25rem;
-  }
-
-  /* ---------- Nav ---------- */
-  header.site-header {
-    position: sticky;
-    top: 0;
-    z-index: 50;
-    padding: 16px 20px 0;
-    pointer-events: none;
-    background: #dbe7fa;
-  }
-
-  .nav-inner {
-    pointer-events: auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-    max-width: 560px;
-    padding: 0.7rem 0.85rem 0.7rem 1.25rem;
-    border-radius: 999px;
-    background: #ffffff;
-    box-shadow:
-      0 10px 30px -12px rgba(31, 20, 32, 0.15),
-      0 2px 10px -4px rgba(31, 20, 32, 0.08);
-  }
-
-  .logo {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.2rem;
-    text-decoration: none;
-  }
-
-  .logo img {
-    height: 28px;
-    width: auto;
-    display: block;
-  }
-
-  .logo-text {
-    font-weight: 800;
-    font-size: 1.4rem;
-    letter-spacing: -0.02em;
-    color: var(--brown);
-  }
-
-  .nav-links {
-    display: none;
-    align-items: center;
-    gap: 1.5rem;
-  }
-
-  .nav-links a {
-    text-decoration: none;
-    color: var(--ink-soft);
-    font-weight: 600;
-    font-size: 0.9rem;
-    white-space: nowrap;
-  }
-
-  .nav-links a:hover,
-  .nav-links a.active {
-    color: var(--blue-dark);
-  }
-
-  .nav-cta {
-    display: inline-block;
-    background: var(--brown);
-    color: #fff;
-    font-weight: 600;
-    font-size: 0.9rem;
-    padding: 0.55rem 1.1rem;
-    border-radius: 999px;
-    text-decoration: none;
-    white-space: nowrap;
-  }
-
-  /* ---------- Hero ---------- */
-  .hero {
-    padding: 3rem 0 3.5rem;
-    overflow-x: hidden;
-    background: linear-gradient(180deg, #dbe7fa 0%, var(--bg) 100%);
-  }
-
-  .hero-inner {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  .hero h1 {
-    font-size: clamp(2.1rem, 6vw, 3rem);
-    font-weight: 800;
-    letter-spacing: -0.03em;
-    line-height: 1.15;
-    max-width: 20ch;
-  }
-
-  .hero h1 .light {
-    font-weight: 400;
-  }
-
-  .hero .pitch {
-    margin-top: 1.1rem;
-    font-size: 1.05rem;
-    color: var(--ink-soft);
-    max-width: 34rem;
-  }
-
-  .download-btn {
-    margin-top: 1.75rem;
-    display: inline-block;
-    background: var(--brown);
-    color: #fff;
-    font-weight: 700;
-    font-size: 1rem;
-    padding: 0.9rem 2.2rem;
-    border-radius: 999px;
-    text-decoration: none;
-    transition: background 0.15s ease, transform 0.15s ease;
-    box-shadow: 0 10px 25px -10px rgba(71, 46, 42, 0.4);
-  }
-
-  .download-btn:hover {
-    background: var(--brown-dark);
-    transform: translateY(-2px);
-  }
-
-  .free-forever {
-    margin-top: 0.65rem;
-    font-size: 0.85rem;
-    color: var(--ink-soft);
-  }
-
-  .hero-phone {
-    width: 100%;
-    max-width: 320px;
-    margin: 2.75rem auto 0;
-    aspect-ratio: 9 / 19.5;
-    background: linear-gradient(160deg, var(--blue), #fff);
-    border: 7px solid #111;
-    border-radius: 2rem;
-    overflow: hidden;
-    box-shadow: 0 25px 50px -20px rgba(71, 46, 42, 0.35);
-  }
-
-  .hero-phone img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  /* ---------- Hero gallery ---------- */
-  .hero-gallery {
-    padding: 0 0 3rem;
-  }
-
-  .gallery-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1.25rem;
-    max-width: 900px;
-    margin: 0 auto;
-  }
-
-  .gallery-card {
-    border-radius: 20px;
-    overflow: hidden;
-    aspect-ratio: 9 / 16;
-    background: var(--border);
-    box-shadow: 0 15px 35px -20px rgba(31, 20, 32, 0.3);
-  }
-
-  .gallery-card img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-
-  .gallery-card.gallery-placeholder {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 1.5rem;
-    background: var(--card-bg);
-    border: 1px dashed var(--border);
-    color: var(--ink-soft);
-    font-size: 0.85rem;
-    font-weight: 600;
-    box-shadow: none;
-  }
-
-  /* ---------- Features ---------- */
-  .features {
-    padding: 3rem 0;
-  }
-
-  .section-heading {
-    text-align: center;
-    max-width: 32rem;
-    margin: 0 auto 2.25rem;
-  }
-
-  .section-heading h2 {
-    font-size: clamp(1.6rem, 5vw, 2.1rem);
-    font-weight: 800;
-    letter-spacing: -0.02em;
-  }
-
-  .section-heading p {
-    margin-top: 0.6rem;
-    color: var(--ink-soft);
-    font-size: 1rem;
-  }
-
-  .feature-columns {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    max-width: 880px;
-    margin: 0 auto;
-  }
-
-  .feature-column {
-    display: flex;
-    flex-direction: column;
-    gap: 1.75rem;
-  }
-
-  .feature-item {
-    display: flex;
-    gap: 1rem;
-    align-items: flex-start;
-    text-align: left;
-  }
-
-  .feature-icon {
-    width: 52px;
-    height: 52px;
-    border-radius: 14px;
-    background: var(--blue);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-  }
-
-  .feature-icon svg {
-    width: 26px;
-    height: 26px;
-    stroke: var(--brown);
-  }
-
-  .feature-item h3 {
-    font-size: 1.1rem;
-    font-weight: 700;
-    margin-bottom: 0.3rem;
-    letter-spacing: -0.01em;
-  }
-
-  .feature-item p {
-    color: var(--ink-soft);
-    font-size: 0.95rem;
-  }
-
-  /* ---------- Comparison ---------- */
-  .comparison {
-    padding: 3rem 0;
-  }
-
-  .plans-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-    max-width: 760px;
-    margin: 0 auto;
-  }
-
-  .plan-card {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    background: var(--card-bg);
-    border: 1px solid var(--border);
-    border-radius: 24px;
-    padding: 2rem 1.75rem;
-  }
-
-  .plan-card.premium-card {
-    border-color: var(--brown);
-    background: var(--yellow);
-  }
-
-  .plan-badge {
-    display: inline-block;
-    position: absolute;
-    top: -0.7rem;
-    left: 50%;
-    transform: translateX(-50%);
-    background: var(--brown);
-    color: #fff;
-    font-size: 0.65rem;
-    font-weight: 700;
-    letter-spacing: 0.03em;
-    text-transform: uppercase;
-    padding: 0.3rem 0.7rem;
-    border-radius: 999px;
-    white-space: nowrap;
-  }
-
-  .plan-name {
-    display: block;
-    font-size: 1.2rem;
-    font-weight: 800;
-    letter-spacing: -0.01em;
-  }
-
-  .premium-card .plan-name {
-    color: var(--brown);
-  }
-
-  .plan-price {
-    display: block;
-    margin-top: 0.3rem;
-    font-size: 0.9rem;
-    color: var(--ink-soft);
-    font-weight: 600;
-  }
-
-  .plan-save {
-    display: block;
-    margin-top: 0.2rem;
-    font-size: 0.78rem;
-    color: var(--success);
-    font-weight: 700;
-  }
-
-  .plan-features {
-    list-style: none;
-    margin: 1.5rem 0 1.75rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.7rem;
-    flex: 1;
-  }
-
-  .plan-features li {
-    display: flex;
-    align-items: flex-start;
-    gap: 0.6rem;
-    font-size: 0.92rem;
-    color: var(--ink);
-  }
-
-  .plan-features svg {
-    width: 18px;
-    height: 18px;
-    stroke: var(--success);
-    flex-shrink: 0;
-    margin-top: 0.15rem;
-  }
-
-  .plan-features .plan-features-lead {
-    font-weight: 700;
-    color: var(--ink);
-    margin-bottom: -0.2rem;
-  }
-
-  .plan-cta {
-    display: block;
-    text-align: center;
-    font-size: 0.95rem;
-    font-weight: 700;
-    padding: 0.75rem 1rem;
-    border-radius: 999px;
-    text-decoration: none;
-  }
-
-  .plan-card:not(.premium-card) .plan-cta {
-    background: var(--bg);
-    color: var(--ink);
-    border: 1px solid var(--border);
-  }
-
-  .premium-card .plan-cta {
-    background: var(--brown);
-    color: #fff;
-  }
-
-  .compare-note {
-    text-align: center;
-    font-size: 0.82rem;
-    color: var(--ink-soft);
-    margin-top: 0.9rem;
-  }
-
-  /* ---------- Final CTA ---------- */
-  .final-cta {
-    padding: 2rem 0 3.5rem;
-  }
-
-  .store-btn {
-    margin-top: 1.5rem;
-    display: inline-block;
-    line-height: 0;
-    transition: transform 0.15s ease;
-  }
-
-  .store-btn:hover { transform: translateY(-2px); }
-
-  .store-btn img { height: 48px; display: block; }
-
-  .final-cta .wrap {
-    background: var(--brown);
-    border-radius: 28px;
-    padding: 3rem 1.5rem;
-    text-align: center;
-  }
-
-  .final-cta h2 {
-    color: #fff;
-    font-size: clamp(1.5rem, 5vw, 2rem);
-    font-weight: 800;
-    letter-spacing: -0.02em;
-  }
-
-  .final-cta p {
-    margin-top: 0.6rem;
-    color: rgba(255, 255, 255, 0.7);
-  }
-
-  /* ---------- Footer ---------- */
-  footer {
-    background: var(--brown);
-    padding: 2.25rem 0;
-  }
-
-  .footer-inner {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    align-items: center;
-    text-align: center;
-    font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.7);
-  }
-
-  .footer-links {
-    display: flex;
-    gap: 1.25rem;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .footer-social {
-    display: flex;
-    gap: 0.9rem;
-  }
-
-  .footer-social a {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    border: 1px solid rgba(255, 255, 255, 0.25);
-    color: rgba(255, 255, 255, 0.7);
-    transition: color 0.15s ease, border-color 0.15s ease;
-  }
-
-  .footer-social a:hover {
-    color: #fff;
-    border-color: #fff;
-  }
-
-  .footer-social svg {
-    width: 18px;
-    height: 18px;
-    fill: currentColor;
-  }
-
-  .footer-links a {
-    text-decoration: none;
-    color: rgba(255, 255, 255, 0.7);
-  }
-
-  .footer-links a:hover {
-    color: #fff;
-  }
-
-  /* ---------- Larger screens ---------- */
-  @media (min-width: 720px) {
-    .nav-links {
-      display: flex;
-    }
-
-    .gallery-grid {
-      grid-template-columns: repeat(3, 1fr);
-    }
-
-    .feature-columns {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 2.5rem 3.5rem;
-    }
-
-    .plans-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-
-  @media (min-width: 960px) {
-    .hero { padding: 5rem 0 4rem; }
+  :root{
+    --primary-text:#1A1A1A;
+    --secondary-text:#8A8A8A;
+    --surface:#FCFBF9;
+    --surface-tint:#F4F3F1;
+    --brand:#43312D;
+    --brand-dark:#2E211E;
+    --divider:#EFEDE9;
+    --protein:#A3BCEF;
+    --fats:#97E0B8;
+    --carbs:#C4AEEF;
+    --max-w:1160px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;font-family:'Bricolage Grotesque',system-ui,-apple-system,sans-serif;color:var(--primary-text);background:var(--surface);}
+  img{max-width:100%;display:block;}
+  a{color:inherit;text-decoration:none;}
+  a:hover{color:var(--brand);}
+  .wrap{max-width:var(--max-w);margin:0 auto;padding:0 24px;}
+  .pill-btn{display:inline-flex;align-items:center;justify-content:center;height:52px;padding:0 28px;border-radius:999px;background:var(--brand);color:#fff;font-weight:500;font-size:16px;letter-spacing:-0.01em;white-space:nowrap;transition:background .15s ease,transform .15s ease;}
+  .pill-btn:hover{background:var(--brand-dark);color:#fff;transform:translateY(-1px);}
+  .pill-btn-ghost{display:inline-flex;align-items:center;justify-content:center;height:44px;padding:0 20px;border-radius:999px;background:var(--surface-tint);color:var(--primary-text);font-weight:500;font-size:14px;}
+  .section-eyebrow{font-weight:600;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--secondary-text);}
+  .section-heading{font-weight:600;font-size:clamp(28px,4vw,38px);letter-spacing:-0.02em;line-height:1.15;margin:10px 0 0;}
+  .section-sub{margin:12px 0 0;color:var(--secondary-text);font-size:17px;max-width:42ch;}
+  .card{background:var(--surface);border:1px solid var(--divider);border-radius:16px;}
+  .checklist{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px;}
+  .checklist li{display:flex;align-items:flex-start;gap:10px;font-size:15px;color:var(--primary-text);}
+  .checklist svg{flex-shrink:0;margin-top:2px;}
+  @media (max-width:820px){
+    .hero-row{flex-direction:column-reverse !important;}
+    .hero-copy{align-items:center !important;text-align:center !important;max-width:100% !important;}
+    .hero-copy p{max-width:46ch !important;}
+    .nav-links{display:none !important;}
+    .feature-grid{grid-template-columns:1fr !important;}
+    .plan-grid{grid-template-columns:1fr !important;}
+    .footer-row{flex-direction:column !important;gap:24px !important;text-align:center;}
+    .footer-row > div{justify-content:center !important;}
   }
 </style>
 </head>
 <body>
 
-<div class="announcement-bar">Try our premium trial for 2 weeks free</div>
+<div style="background:var(--surface);">
 
-<header class="site-header">
-  <div class="wrap nav-inner">
-    <a class="logo" href="#top">
-      <img src="images/scoff-logo.svg" alt="Scoff">
-      <span class="logo-text" aria-hidden="true">COFF</span>
-    </a>
-    <nav class="nav-links">
-      <a href="about.html">Our Story</a>
-      <a href="faq.html">FAQs</a>
-    </nav>
-    <a class="nav-cta" href="https://apps.apple.com/au/app/scoff/id6780077468" target="_blank" rel="noopener">Get the app</a>
-  </div>
-</header>
-
-<main id="top">
-  <!-- Hero -->
-  <section class="hero">
-    <div class="wrap hero-inner">
-      <h1><span class="light">Your new</span> calorie and macro tracking app</h1>
-      <p class="pitch">Scan barcodes, log meals from 5+ Aussie food chains, build custom meals &amp; more</p>
-      <a id="download" class="download-btn" href="https://apps.apple.com/au/app/scoff/id6780077468" target="_blank" rel="noopener">Download on iOS</a>
-      <p class="free-forever">Free forever</p>
-      <div class="hero-phone">
-        <img src="images/hero-screenshot.png" alt="Screenshot of the Scoff app showing a day's logged meals and calorie progress">
-      </div>
+  <!-- Nav -->
+  <header style="position:sticky;top:0;z-index:50;padding:18px 20px 0;background:#FFF1BF;">
+    <div class="wrap" style="display:flex;align-items:center;justify-content:space-between;gap:16px;max-width:640px;padding:10px 10px 10px 20px;border-radius:999px;background:#fff;box-shadow:0 12px 30px -14px rgba(26,26,26,0.18),0 2px 10px -4px rgba(26,26,26,0.08);">
+      <a href="#top" style="display:inline-flex;align-items:center;">
+        <svg width="103" height="26" viewBox="0 0 1036 263" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Scoff">
+          <circle cx="995.441" cy="221.441" r="40.4411" fill="var(--brand)"/>
+          <path d="M257.901 45.1008C335.117 19.9044 381.204 47.7255 394.596 64.7861C399.985 70.5261 373.529 124.334 355.891 114.984C338.252 105.633 303.531 107.667 294.222 119.479C284.913 131.29 280.091 162.552 311.045 175.243C330.251 183.117 359.647 163.541 369.119 160.26C383.327 170.595 387.737 186.835 394.596 202.584C400.083 215.182 382.837 225.878 373.529 229.651C305.328 255.242 251.695 228.831 233.404 212.426C202.645 179.687 191.376 66.8087 257.901 45.1008Z" fill="var(--brand)"/>
+          <path d="M490.097 35C542.065 35.0002 584.192 78.1769 584.192 131.438C584.192 184.698 542.064 227.874 490.097 227.874C438.129 227.874 396 184.698 396 131.438C396 78.1767 438.129 35 490.097 35ZM489.677 104.01C478.206 104.01 468.908 116.091 468.908 130.994C468.908 145.897 478.206 157.978 489.677 157.979C501.147 157.979 510.446 145.897 510.446 130.994C510.446 116.091 501.147 104.01 489.677 104.01Z" fill="var(--brand)"/>
+          <path d="M678.979 229.351C678.848 247.729 661.286 262.536 639.753 262.424C618.219 262.313 600.87 247.324 601.001 228.946L678.979 229.351ZM649.596 29.0327C669.99 23.6115 691.632 26.5334 706.224 29.4994C722.203 32.7473 737.339 37.718 747.992 41.6128C753.439 43.6039 757.987 45.4149 761.224 46.7505C762.847 47.4201 764.154 47.9756 765.093 48.3806C765.563 48.5833 765.942 48.749 766.224 48.8729C766.364 48.9346 766.481 48.9857 766.572 49.0263C766.618 49.0467 766.659 49.0648 766.692 49.0796C766.709 49.0869 766.724 49.0939 766.737 49.0998C766.744 49.1028 766.753 49.1069 766.756 49.1084C766.763 49.1133 766.654 49.3053 750.047 76.312L766.772 49.1158C785.839 57.6566 793.185 77.7725 783.178 94.0457C773.173 110.315 749.612 116.583 730.547 108.051V108.052L730.577 108.065C730.585 108.069 730.587 108.071 730.584 108.069C730.578 108.067 730.547 108.053 730.495 108.03C730.389 107.984 730.194 107.898 729.915 107.778C729.356 107.536 728.464 107.156 727.287 106.671C724.925 105.696 721.467 104.317 717.288 102.789C708.689 99.6454 698.094 96.2612 688.159 94.2418C685.805 93.7635 683.748 93.4191 681.97 93.1688C681.379 105.489 680.896 120.222 680.502 135.419H716.693C738.227 135.419 755.684 150.318 755.684 168.696C755.684 187.074 738.227 201.973 716.693 201.973H679.267C679.215 206.074 679.17 209.838 679.134 213.177C679.079 218.188 679.04 222.238 679.015 225.033C679.003 226.43 678.994 227.513 678.988 228.245C678.985 228.611 678.983 228.889 678.981 229.075C678.981 229.168 678.981 229.238 678.98 229.284C678.98 229.307 678.98 229.324 678.98 229.335C678.98 229.341 678.979 229.345 678.979 229.348V229.35L639.99 229.149C601.905 228.951 601.021 228.945 601.001 228.944V228.868C601.001 228.819 601.001 228.745 601.002 228.648C601.003 228.454 601.007 228.168 601.009 227.794C601.015 227.046 601.024 225.946 601.037 224.531C601.062 221.701 601.1 217.609 601.156 212.554C601.267 202.445 601.445 188.467 601.711 172.994C601.726 172.141 601.743 171.283 601.759 170.42C601.724 169.849 601.706 169.274 601.706 168.696C601.706 167.767 601.753 166.847 601.841 165.937C602.382 136.682 603.24 103.098 604.584 80.527C605.251 69.3191 608.964 57.7762 617.768 47.8234C626.658 37.7739 638.38 32.0144 649.596 29.0327Z" fill="var(--brand)"/>
+          <path d="M874.618 217.804C874.491 235.138 857.461 249.105 836.579 248.999C815.698 248.894 798.874 234.757 799.001 217.422L874.618 217.804ZM846.125 28.8605C865.901 23.7471 886.888 26.5031 901.038 29.3007C916.534 32.3642 931.211 37.0526 941.542 40.7262C946.823 42.6043 951.234 44.3125 954.373 45.5722C955.947 46.2038 957.214 46.7277 958.125 47.1098C958.58 47.301 958.948 47.4572 959.222 47.5741C959.358 47.6323 959.471 47.6805 959.559 47.7188C959.604 47.738 959.643 47.7551 959.676 47.769C959.691 47.776 959.706 47.7825 959.719 47.7881C959.726 47.791 959.734 47.7948 959.737 47.7962C959.744 47.8009 959.639 47.9819 943.534 73.4551L959.753 47.8032C978.243 55.859 985.366 74.8327 975.662 90.1818C965.96 105.527 943.112 111.439 924.625 103.392V103.393L924.654 103.405C924.662 103.409 924.664 103.41 924.661 103.409C924.655 103.406 924.625 103.394 924.574 103.372C924.472 103.328 924.283 103.247 924.012 103.134C923.47 102.906 922.605 102.548 921.464 102.09C919.173 101.17 915.819 99.8698 911.767 98.4286C903.428 95.4635 893.154 92.2715 883.52 90.3667C881.238 89.9156 879.243 89.5908 877.519 89.3547C876.945 100.975 876.477 114.872 876.095 129.206H911.191C932.072 129.206 949 143.258 949 160.593C949 177.928 932.072 191.98 911.191 191.98H874.898C874.847 195.849 874.804 199.399 874.768 202.549C874.715 207.275 874.677 211.095 874.653 213.731C874.641 215.049 874.632 216.071 874.626 216.761C874.624 217.106 874.622 217.369 874.62 217.544C874.62 217.631 874.619 217.697 874.619 217.741C874.619 217.762 874.619 217.779 874.619 217.789C874.619 217.794 874.618 217.799 874.618 217.801V217.803L836.809 217.613C799.877 217.427 799.021 217.421 799.001 217.42V217.349C799.001 217.302 799.001 217.232 799.002 217.141C799.003 216.958 799.006 216.689 799.009 216.336C799.015 215.63 799.024 214.592 799.036 213.258C799.06 210.588 799.097 206.729 799.151 201.961C799.258 192.426 799.431 179.242 799.69 164.647C799.704 163.843 799.721 163.033 799.736 162.219C799.702 161.681 799.685 161.138 799.685 160.593C799.685 159.717 799.731 158.849 799.815 157.991C800.34 130.397 801.172 98.7199 802.475 77.4308C803.122 66.8592 806.723 55.9718 815.26 46.5842C823.881 37.1053 835.248 31.6729 846.125 28.8605Z" fill="var(--brand)"/>
+          <path d="M97.0354 246.747C80.3004 246.379 65.7937 244.036 53.5153 239.717C41.2368 235.397 30.8723 229.205 22.4218 221.139C13.9737 212.964 7.67249 204.125 3.51805 194.622C-0.633926 185.009 3.25707 175.852 3.25707 175.852C3.25707 175.852 11.8069 163.85 24.0907 159.311C36.3745 154.773 44.0242 154.57 49.2804 156.571C54.5367 158.571 57.3539 158.499 61.1199 165.023C63.202 169.556 66.1268 173.615 69.8941 177.2C73.6639 180.676 78.0213 183.453 82.9664 185.531C87.9115 187.61 93.4505 188.717 99.5832 188.851C106.028 188.993 111.257 187.685 115.271 184.927C119.388 182.172 121.505 178.224 121.62 173.083C121.748 167.394 118.417 162.889 111.628 159.566C104.839 156.243 92.615 151.815 74.956 146.284C52.2357 139.218 35.4472 129.656 24.5904 117.597C13.7336 105.539 8.50174 90.7582 8.89469 73.2556C9.3785 51.7055 18.035 34.3845 34.8642 21.2923C51.7973 8.20247 73.9325 1.95773 101.27 2.55812C116.03 2.88228 128.826 4.96916 139.659 8.81877C150.599 12.5613 160.092 18.1873 168.139 25.6968C176.189 33.097 182.101 40.7238 185.877 48.5774C188.596 52.5828 189.989 61.1719 189.989 61.1719C189.989 61.1719 192.822 76.641 169.403 87.9809C145.985 99.3208 133.335 82.0628 133.335 82.0628C133.335 82.0628 132.179 80.2863 129.867 76.7333C127.659 73.1825 125.076 70.1161 122.118 67.5339C119.162 64.8423 115.828 62.799 112.116 61.4042C108.507 60.0116 104.52 59.2673 100.155 59.1715C94.2299 59.0413 89.4227 60.0849 85.7331 62.3022C82.0459 64.4102 80.1581 67.4332 80.0697 71.3712C79.9641 76.0751 82.8418 79.9141 88.7027 82.8884C94.6676 85.865 106.946 90.1841 125.538 95.8458C150.122 103.281 167.626 113.406 178.05 126.221C188.58 138.929 193.641 154.362 193.233 172.521C192.705 196.04 183.505 214.444 165.631 227.732C147.862 241.022 124.996 247.361 97.0354 246.747Z" fill="var(--brand)"/>
+        </svg>
+      </a>
+      <nav class="nav-links" style="display:flex;align-items:center;gap:24px;">
+        <a href="about.html" style="font-weight:500;font-size:14px;color:var(--primary-text);">Our Story</a>
+        <a href="faq.html" style="font-weight:500;font-size:14px;color:var(--primary-text);">FAQs</a>
+      </nav>
+      <a href="https://apps.apple.com/au/app/scoff/id6780077468" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;justify-content:center;height:40px;padding:0 18px;border-radius:999px;background:var(--brand);color:#fff;font-weight:500;font-size:14px;white-space:nowrap;">Get the app</a>
     </div>
-  </section>
+  </header>
 
-  <!-- Hero gallery -->
-  <section class="hero-gallery">
-    <div class="wrap">
-      <div class="gallery-grid">
-        <div class="gallery-card">
-          <img src="images/hero-saved-meal.png" alt="Screenshot of a saved meal in Scoff showing calories and macros">
-        </div>
-        <div class="gallery-card">
-          <img src="images/hero-restaurant-menu.png" alt="Screenshot of the Guzman y Gomez restaurant menu in Scoff">
-        </div>
-        <div class="gallery-card gallery-placeholder">
-          <span>More screenshots coming soon</span>
+  <!-- Hero -->
+  <section id="top" style="padding:56px 0 40px;background:linear-gradient(180deg, #FFF1BF 0%, #EFF6FF 55%, var(--surface) 100%);">
+    <div class="wrap hero-row" style="display:flex;align-items:center;gap:56px;">
+
+      <div class="hero-copy" style="display:flex;flex-direction:column;align-items:flex-start;flex:1 1 460px;max-width:520px;">
+        <span class="section-eyebrow">Free calorie &amp; macro tracker</span>
+        <h1 style="font-weight:600;font-size:clamp(34px,4.6vw,54px);letter-spacing:-0.03em;line-height:1.08;margin:14px 0 0;">The Australian calorie tracker that doesn't feel like a chore.</h1>
+        <p style="margin:18px 0 0;font-size:18px;line-height:1.55;color:var(--secondary-text);max-width:38ch;">Scan a barcode, log a meal from Guzman y Gomez, or build from your Woolworths shop — kilojoules sit right next to the calories, the Aussie way.</p>
+        <div style="display:flex;align-items:center;gap:16px;margin-top:28px;flex-wrap:wrap;">
+          <a class="pill-btn" href="https://apps.apple.com/au/app/scoff/id6780077468" target="_blank" rel="noopener">Download on iOS</a>
+          <span style="font-size:14px;color:var(--secondary-text);">Free forever</span>
         </div>
       </div>
+
+      <div style="position:relative;flex:0 0 auto;width:100%;max-width:300px;">
+        <div style="position:absolute;top:-30px;left:-40px;width:180px;height:180px;border-radius:50%;background:var(--protein);opacity:.22;filter:blur(30px);"></div>
+        <div style="position:absolute;bottom:-20px;right:-50px;width:200px;height:200px;border-radius:50%;background:var(--carbs);opacity:.2;filter:blur(34px);"></div>
+        <div style="position:absolute;top:40%;right:-30px;width:120px;height:120px;border-radius:50%;background:var(--fats);opacity:.22;filter:blur(28px);"></div>
+
+        <!-- phone frame -->
+        <div style="position:relative;border:8px solid #111;border-radius:44px;overflow:hidden;box-shadow:0 30px 60px -24px rgba(67,49,45,0.35);background:var(--surface-tint);">
+          <div style="aspect-ratio:9/19.5;display:flex;flex-direction:column;">
+            <!-- status bar -->
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:14px 20px 4px;font-size:13px;font-weight:600;color:var(--primary-text);">
+              <span>9:41</span>
+              <span style="display:flex;gap:4px;align-items:center;">
+                <svg width="14" height="10" viewBox="0 0 16 12" fill="none"><rect x="0" y="7" width="3" height="5" rx="0.5" fill="var(--primary-text)"/><rect x="4.5" y="4.5" width="3" height="7.5" rx="0.5" fill="var(--primary-text)"/><rect x="9" y="2" width="3" height="10" rx="0.5" fill="var(--primary-text)"/><rect x="13.5" y="0" width="3" height="12" rx="0.5" fill="var(--primary-text)" opacity="0.35"/></svg>
+                <svg width="20" height="10" viewBox="0 0 24 12" fill="none"><rect x="0.5" y="0.5" width="19" height="11" rx="2.5" stroke="var(--primary-text)"/><rect x="2" y="2" width="14" height="8" rx="1" fill="var(--primary-text)"/><rect x="21" y="4" width="2" height="4" rx="1" fill="var(--primary-text)"/></svg>
+              </span>
+            </div>
+
+            <div style="padding:10px 18px 16px;flex:1;overflow:hidden;">
+              <div style="display:flex;align-items:center;justify-content:space-between;">
+                <span style="font-weight:700;font-size:17px;">Fri, 4 Sep</span>
+              </div>
+              <div style="display:flex;justify-content:space-between;margin-top:12px;">
+                <span style="font-size:11px;color:var(--secondary-text);text-align:center;width:24px;">M</span>
+                <span style="font-size:11px;color:var(--secondary-text);text-align:center;width:24px;">T</span>
+                <span style="font-size:11px;color:var(--secondary-text);text-align:center;width:24px;">W</span>
+                <span style="font-size:11px;color:var(--secondary-text);text-align:center;width:24px;">T</span>
+                <span style="display:flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;background:var(--primary-text);color:#fff;font-size:11px;font-weight:700;">F</span>
+                <span style="font-size:11px;color:var(--secondary-text);text-align:center;width:24px;">S</span>
+                <span style="font-size:11px;color:var(--secondary-text);text-align:center;width:24px;">S</span>
+              </div>
+
+              <div class="card" style="margin-top:14px;padding:14px;">
+                <div style="display:flex;justify-content:space-between;align-items:baseline;">
+                  <span style="font-weight:700;font-size:18px;">1,426 <span style="font-weight:500;font-size:12px;color:var(--secondary-text);">/ 1,850 cal</span></span>
+                </div>
+                <div style="height:7px;border-radius:99px;background:var(--divider);margin-top:8px;overflow:hidden;">
+                  <div style="height:100%;width:77%;background:var(--brand);border-radius:99px;"></div>
+                </div>
+                <div style="display:flex;gap:10px;margin-top:12px;">
+                  <div style="flex:1;">
+                    <div style="height:5px;border-radius:99px;background:var(--divider);overflow:hidden;"><div style="height:100%;width:74%;background:var(--protein);"></div></div>
+                    <span style="font-size:10px;color:var(--secondary-text);">Protein</span>
+                  </div>
+                  <div style="flex:1;">
+                    <div style="height:5px;border-radius:99px;background:var(--divider);overflow:hidden;"><div style="height:100%;width:78%;background:var(--fats);"></div></div>
+                    <span style="font-size:10px;color:var(--secondary-text);">Fats</span>
+                  </div>
+                  <div style="flex:1;">
+                    <div style="height:5px;border-radius:99px;background:var(--divider);overflow:hidden;"><div style="height:100%;width:70%;background:var(--carbs);"></div></div>
+                    <span style="font-size:10px;color:var(--secondary-text);">Carbs</span>
+                  </div>
+                </div>
+              </div>
+
+              <div style="display:flex;align-items:center;justify-content:space-between;margin-top:16px;">
+                <span style="font-weight:700;font-size:14px;">Breakfast</span>
+                <span style="display:inline-flex;align-items:center;height:22px;padding:0 10px;border-radius:99px;background:var(--brand);color:#fff;font-size:11px;font-weight:600;">Add</span>
+              </div>
+              <div class="card" style="margin-top:8px;padding:10px 12px;display:flex;justify-content:space-between;align-items:center;">
+                <div>
+                  <div style="font-weight:600;font-size:13px;">Breakfast pancake</div>
+                  <div style="font-size:11px;color:var(--secondary-text);margin-top:2px;">Saved meal · 1 serve</div>
+                </div>
+                <span style="font-size:12px;font-weight:600;">438 cal</span>
+              </div>
+            </div>
+
+            <!-- tab bar -->
+            <div style="display:flex;justify-content:space-around;padding:10px 0 16px;border-top:1px solid var(--divider);background:#fff;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--brand)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--secondary-text)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10h18M3 10a9 9 0 0 1 18 0M3 10v8a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-8"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--secondary-text)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--secondary-text)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--secondary-text)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v1"/></svg>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
   <!-- Features -->
-  <section class="features">
-    <div class="wrap">
-      <div class="section-heading">
-        <h2>Everything you need, nothing you don't</h2>
-        <p>Built to fit into your day, not take it over.</p>
-      </div>
-      <div class="feature-columns">
-        <div class="feature-column">
-          <div class="feature-item">
-            <div class="feature-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M3 7V5a2 2 0 0 1 2-2h2"></path>
-                <path d="M17 3h2a2 2 0 0 1 2 2v2"></path>
-                <path d="M21 17v2a2 2 0 0 1-2 2h-2"></path>
-                <path d="M7 21H5a2 2 0 0 1-2-2v-2"></path>
-                <path d="M8 7v10"></path>
-                <path d="M12 7v10"></path>
-                <path d="M17 7v10"></path>
-              </svg>
-            </div>
-            <div>
-              <h3>Log in seconds</h3>
-              <p>Scan a barcode or search our huge food database — including Australian NUTTAB data — with kilojoules shown alongside calories.</p>
-            </div>
-          </div>
-          <div class="feature-item">
-            <div class="feature-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
-              </svg>
-            </div>
-            <div>
-              <h3>Save your go-tos</h3>
-              <p>Turn regular meals and custom foods into one-tap saves, so logging the usual doesn't mean starting from scratch.</p>
-            </div>
-          </div>
-          <div class="feature-item">
-            <div class="feature-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M12 2C8 2 5 5 5 9c0 5 7 13 7 13s7-8 7-13c0-4-3-7-7-7z"></path>
-                <circle cx="12" cy="9" r="2.5"></circle>
-              </svg>
-            </div>
-            <div>
-              <h3>Aussie menus, sorted</h3>
-              <p>Browse menus from popular Australian chains like Guzman y Gomez, Grill'd, Roll'd, Subway and Yo-Chi.</p>
-            </div>
-          </div>
+  <section id="features" style="padding:64px 0;">
+    <div class="wrap" style="display:flex;flex-direction:column;align-items:center;text-align:center;">
+      <span class="section-eyebrow">Why Scoff</span>
+      <h2 class="section-heading">Everything you need, nothing you don't</h2>
+      <p class="section-sub" style="text-align:center;">Built to fit into your day, not take it over.</p>
+    </div>
+
+    <div class="wrap feature-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:36px 48px;max-width:900px;margin-top:44px;">
+
+      <div style="display:flex;gap:16px;align-items:flex-start;">
+        <div style="width:48px;height:48px;flex-shrink:0;border-radius:14px;background:var(--surface-tint);display:flex;align-items:center;justify-content:center;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--primary-text)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M17 3h2a2 2 0 0 1 2 2v2"/><path d="M21 17v2a2 2 0 0 1-2 2h-2"/><path d="M7 21H5a2 2 0 0 1-2-2v-2"/><path d="M8 7v10M12 7v10M16 7v10"/></svg>
         </div>
-        <div class="feature-column">
-          <div class="feature-item">
-            <div class="feature-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <circle cx="9" cy="21" r="1"></circle>
-                <circle cx="20" cy="21" r="1"></circle>
-                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-              </svg>
-            </div>
-            <div>
-              <h3>Shopping lists, built in</h3>
-              <p>Turn a saved meal or a day from your diary straight into a shopping list — no re-typing what you need.</p>
-            </div>
-          </div>
-          <div class="feature-item">
-            <div class="feature-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <line x1="4" y1="21" x2="4" y2="14"></line>
-                <line x1="4" y1="10" x2="4" y2="3"></line>
-                <line x1="12" y1="21" x2="12" y2="12"></line>
-                <line x1="12" y1="8" x2="12" y2="3"></line>
-                <line x1="20" y1="21" x2="20" y2="16"></line>
-                <line x1="20" y1="12" x2="20" y2="3"></line>
-                <line x1="1" y1="14" x2="7" y2="14"></line>
-                <line x1="9" y1="8" x2="15" y2="8"></line>
-                <line x1="17" y1="16" x2="23" y2="16"></line>
-              </svg>
-            </div>
-            <div>
-              <h3>Make it yours</h3>
-              <p>Rename, reorder or add extra meal slots beyond breakfast, lunch and dinner — your diary, your structure.</p>
-            </div>
-          </div>
-          <div class="feature-item">
-            <div class="feature-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"></path>
-                <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
-              </svg>
-            </div>
-            <div>
-              <h3>Gentle reminders</h3>
-              <p>A daily nudge at a time you choose, so logging your meals doesn't slip your mind.</p>
-            </div>
-          </div>
+        <div>
+          <h3 style="font-weight:600;font-size:17px;margin:0 0 6px;letter-spacing:-0.01em;">Log in seconds</h3>
+          <p style="margin:0;font-size:15px;line-height:1.5;color:var(--secondary-text);">Scan a barcode or search official NUTTAB data and 4,000+ real Woolworths products — with kilojoules shown right alongside calories.</p>
         </div>
       </div>
+
+      <div style="display:flex;gap:16px;align-items:flex-start;">
+        <div style="width:48px;height:48px;flex-shrink:0;border-radius:14px;background:var(--surface-tint);display:flex;align-items:center;justify-content:center;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--primary-text)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+        </div>
+        <div>
+          <h3 style="font-weight:600;font-size:17px;margin:0 0 6px;letter-spacing:-0.01em;">Save your go-tos</h3>
+          <p style="margin:0;font-size:15px;line-height:1.5;color:var(--secondary-text);">Turn regular meals and custom foods into one-tap saves, so logging the usual doesn't mean starting from scratch.</p>
+        </div>
+      </div>
+
+      <div style="display:flex;gap:16px;align-items:flex-start;">
+        <div style="width:48px;height:48px;flex-shrink:0;border-radius:14px;background:var(--surface-tint);display:flex;align-items:center;justify-content:center;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--primary-text)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C8 2 5 5 5 9c0 5 7 13 7 13s7-8 7-13c0-4-3-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        </div>
+        <div>
+          <h3 style="font-weight:600;font-size:17px;margin:0 0 6px;letter-spacing:-0.01em;">Aussie menus, sorted</h3>
+          <p style="margin:0;font-size:15px;line-height:1.5;color:var(--secondary-text);">Log straight from the menus of Guzman y Gomez, Grill'd, Subway, Starbucks, Hungry Jack's and more — plus a growing list of UK chains.</p>
+        </div>
+      </div>
+
+      <div style="display:flex;gap:16px;align-items:flex-start;">
+        <div style="width:48px;height:48px;flex-shrink:0;border-radius:14px;background:var(--surface-tint);display:flex;align-items:center;justify-content:center;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--primary-text)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        </div>
+        <div>
+          <h3 style="font-weight:600;font-size:17px;margin:0 0 6px;letter-spacing:-0.01em;">Shopping lists, built in</h3>
+          <p style="margin:0;font-size:15px;line-height:1.5;color:var(--secondary-text);">Turn a saved meal or a day from your diary straight into a shopping list — no re-typing what you need.</p>
+        </div>
+      </div>
+
+      <div style="display:flex;gap:16px;align-items:flex-start;">
+        <div style="width:48px;height:48px;flex-shrink:0;border-radius:14px;background:var(--surface-tint);display:flex;align-items:center;justify-content:center;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--primary-text)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/></svg>
+        </div>
+        <div>
+          <h3 style="font-weight:600;font-size:17px;margin:0 0 6px;letter-spacing:-0.01em;">Make it yours</h3>
+          <p style="margin:0;font-size:15px;line-height:1.5;color:var(--secondary-text);">Rename, reorder or add extra meal slots beyond breakfast, lunch and dinner — your diary, your structure.</p>
+        </div>
+      </div>
+
+      <div style="display:flex;gap:16px;align-items:flex-start;">
+        <div style="width:48px;height:48px;flex-shrink:0;border-radius:14px;background:var(--surface-tint);display:flex;align-items:center;justify-content:center;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--primary-text)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg>
+        </div>
+        <div>
+          <h3 style="font-weight:600;font-size:17px;margin:0 0 6px;letter-spacing:-0.01em;">Weekly insights</h3>
+          <p style="margin:0;font-size:15px;line-height:1.5;color:var(--secondary-text);">See sat fat, sugar, fibre and sodium alongside your macros, and track how your week's shaping up at a glance.</p>
+        </div>
+      </div>
+
     </div>
   </section>
 
-  <!-- Comparison -->
-  <section class="comparison">
-    <div class="wrap">
-      <div class="section-heading">
-        <h2>Free vs Premium</h2>
-        <p>Start for free. Upgrade when you want more.</p>
-      </div>
-      <div class="plans-grid">
-        <div class="plan-card">
-          <span class="plan-name">Free</span>
-          <span class="plan-price">$0 forever</span>
-          <ul class="plan-features">
-            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Barcode scanning &amp; food search</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Daily calorie &amp; macro tracking</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Custom goals &amp; daily reminders</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Save up to 3 meals</li>
-          </ul>
-          <a class="plan-cta" href="https://apps.apple.com/au/app/scoff/id6780077468">Download free</a>
-        </div>
-        <div class="plan-card premium-card">
-          <span class="plan-badge">Most popular</span>
-          <span class="plan-name">Premium</span>
-          <span class="plan-price">$4.99/mo or $39.99/yr</span>
-          <span class="plan-save">Save 33% with annual</span>
-          <ul class="plan-features">
-            <li class="plan-features-lead">Everything in Free, plus:</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Unlimited saved meals</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Extended nutrition (sat fat, sugar, fibre, sodium)</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Log directly from restaurant menus</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Weekly charts &amp; insights</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Extra custom meal slots</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Instagram story sharing</li>
-          </ul>
-          <a class="plan-cta" href="https://apps.apple.com/au/app/scoff/id6780077468">Try Premium</a>
-        </div>
-      </div>
-      <p class="compare-note">Prices in AUD. Auto-renews; cancel anytime in the App Store.</p>
+  <!-- Pricing -->
+  <section id="pricing" style="padding:64px 0;background:var(--surface-tint);">
+    <div class="wrap" style="display:flex;flex-direction:column;align-items:center;text-align:center;">
+      <span class="section-eyebrow">Pricing</span>
+      <h2 class="section-heading">Free vs Premium</h2>
+      <p class="section-sub" style="text-align:center;">Start for free. Upgrade when you want more.</p>
     </div>
+
+    <div class="wrap plan-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:780px;margin-top:44px;">
+
+      <div class="card" style="padding:32px 28px;display:flex;flex-direction:column;background:#fff;">
+        <span style="font-weight:700;font-size:19px;">Free</span>
+        <span style="margin-top:4px;font-size:14px;color:var(--secondary-text);font-weight:500;">$0 forever</span>
+        <ul class="checklist" style="margin:24px 0 28px;flex:1;">
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--primary-text)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Barcode scanning &amp; food search</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--primary-text)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Daily calorie &amp; macro tracking</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--primary-text)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Custom goals &amp; daily reminders</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--primary-text)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Save up to 3 meals</li>
+        </ul>
+        <a href="https://apps.apple.com/au/app/scoff/id6780077468" class="pill-btn-ghost" style="width:100%;">Download free</a>
+      </div>
+
+      <div class="card" style="padding:32px 28px;display:flex;flex-direction:column;background:#fff;border-color:var(--brand);position:relative;">
+        <span style="position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--brand);color:#fff;font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:5px 14px;border-radius:99px;white-space:nowrap;">Most popular</span>
+        <span style="font-weight:700;font-size:19px;color:var(--brand);">Premium</span>
+        <span style="margin-top:4px;font-size:14px;color:var(--secondary-text);font-weight:500;">$4.99/mo or $39.99/yr</span>
+        <span style="margin-top:3px;font-size:12px;font-weight:700;color:var(--brand);">Save 33% with annual</span>
+        <ul class="checklist" style="margin:20px 0 28px;flex:1;">
+          <li style="font-weight:700;margin-bottom:-4px;">Everything in Free, plus:</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--primary-text)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Unlimited saved meals</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--primary-text)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Extended nutrition (sat fat, sugar, fibre, sodium)</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--primary-text)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Log directly from restaurant menus</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--primary-text)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Weekly charts &amp; insights</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--primary-text)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Extra custom meal slots</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--primary-text)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Instagram story sharing</li>
+        </ul>
+        <a href="https://apps.apple.com/au/app/scoff/id6780077468" class="pill-btn" style="width:100%;">Try Premium</a>
+      </div>
+
+    </div>
+    <p class="wrap" style="text-align:center;font-size:13px;color:var(--secondary-text);margin-top:20px;">Prices in AUD. Auto-renews; cancel anytime in the App Store.</p>
   </section>
 
   <!-- Final CTA -->
-  <section class="final-cta">
-    <div class="wrap">
-      <h2>Ready to scoff smarter?</h2>
-      <p>Free to download. Free to start.</p>
-      <a class="store-btn" href="https://apps.apple.com/au/app/scoff/id6780077468" aria-label="Download Scoff on the App Store">
-        <img src="images/appstore-badge-white.svg" alt="Download on the App Store">
+  <section style="padding:72px 0;">
+    <div class="wrap" style="background:var(--brand);border-radius:28px;padding:56px 32px;text-align:center;">
+      <h2 style="color:#fff;font-weight:600;font-size:clamp(26px,4vw,34px);letter-spacing:-0.02em;margin:0;">Ready to scoff smarter?</h2>
+      <p style="color:rgba(255,255,255,0.7);margin:10px 0 0;font-size:16px;">Free to download. Free to start.</p>
+      <a href="https://apps.apple.com/au/app/scoff/id6780077468" aria-label="Download Scoff on the App Store" style="display:inline-block;margin-top:26px;">
+        <img src="images/appstore-badge-white.svg" alt="Download on the App Store" style="height:50px;">
       </a>
     </div>
   </section>
-</main>
 
-<footer>
-  <div class="wrap footer-inner">
-    <div class="footer-links">
-      <a href="about.html">About</a>
-      <a href="support.html">Support</a>
-      <a href="faq.html">FAQ</a>
-      <a href="privacy.html">Privacy Policy</a>
+  <!-- Footer -->
+  <footer style="background:var(--brand);padding:40px 0;">
+    <div class="wrap footer-row" style="display:flex;align-items:center;justify-content:space-between;gap:20px;">
+      <div style="display:flex;gap:22px;flex-wrap:wrap;">
+        <a href="about.html" style="font-size:14px;color:rgba(255,255,255,0.7);">About</a>
+        <a href="support.html" style="font-size:14px;color:rgba(255,255,255,0.7);">Support</a>
+        <a href="faq.html" style="font-size:14px;color:rgba(255,255,255,0.7);">FAQ</a>
+        <a href="privacy.html" style="font-size:14px;color:rgba(255,255,255,0.7);">Privacy Policy</a>
+      </div>
+      <div style="display:flex;gap:10px;">
+        <!-- Placeholders — swap href="#" for the real profile URLs once they're live -->
+        <a href="#" aria-label="Scoff on Instagram" style="width:34px;height:34px;border-radius:50%;border:1px solid rgba(255,255,255,0.25);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.7);">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.052.072 2.694.272.272 2.69.072 7.052.014 8.333 0 8.741 0 12s.014 3.667.072 4.948c.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24s3.667-.014 4.948-.072c4.354-.2 6.782-2.618 6.979-6.98.059-1.281.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.948-.196-4.354-2.617-6.78-6.979-6.98C15.667.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+        </a>
+        <a href="#" aria-label="Scoff on TikTok" style="width:34px;height:34px;border-radius:50%;border:1px solid rgba(255,255,255,0.25);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.7);">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12.53.02C13.84 0 15.14.01 16.44 0c.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+        </a>
+      </div>
+      <p style="font-size:13px;color:rgba(255,255,255,0.6);margin:0;">© Scoff 2026</p>
     </div>
-    <!-- Placeholders — swap href="#" for the real profile URLs once they're live -->
-    <div class="footer-social">
-      <a href="#" aria-label="Scoff on Instagram">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-      </a>
-      <a href="#" aria-label="Scoff on TikTok">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.53.02C13.84 0 15.14.01 16.44 0c.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
-      </a>
-    </div>
-    <p>&copy; Scoff 2026</p>
-  </div>
-</footer>
+  </footer>
+
+</div>
 
 </body>
 </html>
