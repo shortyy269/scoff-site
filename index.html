@@ -59,10 +59,13 @@
 
 <div style="background:var(--surface);">
 
+  <!-- Nav + Hero share one gradient so there's no seam behind the sticky header -->
+  <div style="background:linear-gradient(180deg, #FFF1BF 0%, #EFF6FF 55%, var(--surface) 100%);">
+
   <!-- Nav -->
   <header style="position:sticky;top:0;z-index:50;padding:18px 20px 0;">
-    <div class="wrap" style="display:flex;align-items:center;justify-content:space-between;gap:16px;max-width:640px;padding:10px 10px 10px 20px;border-radius:999px;background:#fff;box-shadow:0 12px 30px -14px rgba(26,26,26,0.18),0 2px 10px -4px rgba(26,26,26,0.08);">
-      <a href="#top" style="display:inline-flex;align-items:center;">
+    <div class="wrap" style="display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:16px;max-width:640px;padding:10px 10px 10px 20px;border-radius:999px;background:#fff;box-shadow:0 12px 30px -14px rgba(26,26,26,0.18),0 2px 10px -4px rgba(26,26,26,0.08);">
+      <a href="#top" style="display:inline-flex;align-items:center;justify-self:start;">
         <svg width="103" height="26" viewBox="0 0 1036 263" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Scoff">
           <circle cx="995.441" cy="221.441" r="40.4411" fill="var(--brand)"/>
           <path d="M257.901 45.1008C335.117 19.9044 381.204 47.7255 394.596 64.7861C399.985 70.5261 373.529 124.334 355.891 114.984C338.252 105.633 303.531 107.667 294.222 119.479C284.913 131.29 280.091 162.552 311.045 175.243C330.251 183.117 359.647 163.541 369.119 160.26C383.327 170.595 387.737 186.835 394.596 202.584C400.083 215.182 382.837 225.878 373.529 229.651C305.328 255.242 251.695 228.831 233.404 212.426C202.645 179.687 191.376 66.8087 257.901 45.1008Z" fill="var(--brand)"/>
@@ -72,16 +75,16 @@
           <path d="M97.0354 246.747C80.3004 246.379 65.7937 244.036 53.5153 239.717C41.2368 235.397 30.8723 229.205 22.4218 221.139C13.9737 212.964 7.67249 204.125 3.51805 194.622C-0.633926 185.009 3.25707 175.852 3.25707 175.852C3.25707 175.852 11.8069 163.85 24.0907 159.311C36.3745 154.773 44.0242 154.57 49.2804 156.571C54.5367 158.571 57.3539 158.499 61.1199 165.023C63.202 169.556 66.1268 173.615 69.8941 177.2C73.6639 180.676 78.0213 183.453 82.9664 185.531C87.9115 187.61 93.4505 188.717 99.5832 188.851C106.028 188.993 111.257 187.685 115.271 184.927C119.388 182.172 121.505 178.224 121.62 173.083C121.748 167.394 118.417 162.889 111.628 159.566C104.839 156.243 92.615 151.815 74.956 146.284C52.2357 139.218 35.4472 129.656 24.5904 117.597C13.7336 105.539 8.50174 90.7582 8.89469 73.2556C9.3785 51.7055 18.035 34.3845 34.8642 21.2923C51.7973 8.20247 73.9325 1.95773 101.27 2.55812C116.03 2.88228 128.826 4.96916 139.659 8.81877C150.599 12.5613 160.092 18.1873 168.139 25.6968C176.189 33.097 182.101 40.7238 185.877 48.5774C188.596 52.5828 189.989 61.1719 189.989 61.1719C189.989 61.1719 192.822 76.641 169.403 87.9809C145.985 99.3208 133.335 82.0628 133.335 82.0628C133.335 82.0628 132.179 80.2863 129.867 76.7333C127.659 73.1825 125.076 70.1161 122.118 67.5339C119.162 64.8423 115.828 62.799 112.116 61.4042C108.507 60.0116 104.52 59.2673 100.155 59.1715C94.2299 59.0413 89.4227 60.0849 85.7331 62.3022C82.0459 64.4102 80.1581 67.4332 80.0697 71.3712C79.9641 76.0751 82.8418 79.9141 88.7027 82.8884C94.6676 85.865 106.946 90.1841 125.538 95.8458C150.122 103.281 167.626 113.406 178.05 126.221C188.58 138.929 193.641 154.362 193.233 172.521C192.705 196.04 183.505 214.444 165.631 227.732C147.862 241.022 124.996 247.361 97.0354 246.747Z" fill="var(--brand)"/>
         </svg>
       </a>
-      <nav class="nav-links" style="display:flex;align-items:center;gap:24px;">
+      <nav class="nav-links" style="display:flex;align-items:center;gap:24px;justify-self:center;">
         <a href="about.html" style="font-weight:500;font-size:14px;color:var(--primary-text);">Our Story</a>
         <a href="faq.html" style="font-weight:500;font-size:14px;color:var(--primary-text);">FAQs</a>
       </nav>
-      <a href="https://apps.apple.com/au/app/scoff/id6780077468" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;justify-content:center;height:40px;padding:0 18px;border-radius:999px;background:var(--brand);color:#fff;font-weight:500;font-size:14px;white-space:nowrap;">Get the app</a>
+      <a href="https://apps.apple.com/au/app/scoff/id6780077468" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;justify-content:center;height:40px;padding:0 18px;border-radius:999px;background:var(--brand);color:#fff;font-weight:500;font-size:14px;white-space:nowrap;justify-self:end;">Get the app</a>
     </div>
   </header>
 
   <!-- Hero -->
-  <section id="top" style="padding:56px 0 40px;background:linear-gradient(180deg, #FFF1BF 0%, #EFF6FF 55%, var(--surface) 100%);">
+  <section id="top" style="padding:56px 0 40px;">
     <div class="wrap hero-row" style="display:flex;align-items:center;gap:56px;">
 
       <div class="hero-copy" style="display:flex;flex-direction:column;align-items:flex-start;flex:1 1 460px;max-width:520px;">
@@ -175,6 +178,8 @@
 
     </div>
   </section>
+
+  </div>
 
   <!-- Features -->
   <section id="features" style="padding:64px 0;">
