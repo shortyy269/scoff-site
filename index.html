@@ -50,6 +50,9 @@
     .meals-row{flex-direction:column !important;text-align:center;}
     .meals-row > div:first-child{align-items:center !important;display:flex !important;flex-direction:column !important;max-width:100% !important;}
     .meals-row p{max-width:46ch !important;}
+    .restaurants-row{flex-direction:column !important;text-align:center;}
+    .restaurants-row > div:last-child{align-items:center !important;display:flex !important;flex-direction:column !important;max-width:100% !important;}
+    .restaurants-row p{max-width:46ch !important;}
     .nav-links{display:none !important;}
     .feature-grid{grid-template-columns:1fr !important;}
     .plan-grid{grid-template-columns:1fr !important;}
@@ -202,6 +205,24 @@
 
       <div style="position:relative;flex:0 0 auto;width:100%;max-width:440px;">
         <img src="images/meals-v2.png" alt="Screenshot of the Saved Meals tab in Scoff, showing meals like Chicken Pesto Pasta and Biscoff Cheesecake with photos, servings and macros" style="width:100%;display:block;border-radius:32px;">
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Restaurants spotlight -->
+  <section id="restaurants" style="padding:64px 0;">
+    <div class="wrap restaurants-row" style="display:flex;align-items:center;justify-content:center;gap:64px;">
+
+      <div style="position:relative;flex:0 0 auto;width:100%;max-width:440px;">
+        <img src="images/restaurants.png" alt="Screenshot of the Restaurants list in Scoff, showing Guzman y Gomez, Roll'd, Yo-Chi, Subway and Grill'd with item counts" style="width:100%;display:block;border-radius:32px;">
+      </div>
+
+      <div style="flex:1 1 420px;max-width:440px;">
+        <span class="section-eyebrow" style="color:var(--brand);">Restaurant menus</span>
+        <h2 style="font-weight:600;font-size:clamp(28px,4vw,38px);letter-spacing:-0.02em;line-height:1.15;margin:10px 0 0;">Skip the search. Log straight from the menu.</h2>
+        <p style="margin:16px 0 0;color:var(--secondary-text);font-size:16px;line-height:1.6;max-width:38ch;">Search a restaurant, tap what you had, done. Over 800 menu items are already in Scoff across Guzman y Gomez, Roll'd, Yo-Chi, Subway and Grill'd, with more Aussie chains added over time.</p>
+        <a class="pill-btn" href="https://apps.apple.com/au/app/scoff/id6780077468" target="_blank" rel="noopener" style="margin-top:28px;">Download on iOS</a>
       </div>
 
     </div>
