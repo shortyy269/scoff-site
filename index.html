@@ -55,6 +55,9 @@
     .restaurants-row{flex-direction:column !important;text-align:center;}
     .restaurants-row > div:last-child{align-items:center !important;display:flex !important;flex-direction:column !important;max-width:100% !important;flex-basis:auto !important;}
     .restaurants-row p{max-width:46ch !important;}
+    .summary-row{flex-direction:column !important;text-align:center;}
+    .summary-row > div:first-child{align-items:center !important;display:flex !important;flex-direction:column !important;max-width:100% !important;flex-basis:auto !important;}
+    .summary-row p{max-width:46ch !important;}
     .nav-links{display:none !important;}
     .feature-grid{grid-template-columns:1fr !important;}
     .plan-grid{grid-template-columns:1fr !important;}
@@ -221,6 +224,23 @@
         <span class="section-eyebrow" style="color:var(--brand);">Restaurant menus</span>
         <h2 style="font-weight:500;font-size:30px;letter-spacing:-0.02em;line-height:1.15;margin:10px 0 0;">Skip the search. Log straight from the menu.</h2>
         <p style="margin:16px 0 0;color:var(--secondary-text);font-size:16px;line-height:1.6;max-width:38ch;">Search a restaurant, tap what you had, done. Over 800 menu items are already in Scoff across Guzman y Gomez, Roll'd, Yo-Chi, Subway and Grill'd, with more Aussie chains added over time.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Summary spotlight -->
+  <section id="summary" style="padding:64px 0;">
+    <div class="wrap summary-row" style="display:flex;align-items:center;justify-content:center;gap:64px;">
+
+      <div style="flex:1 1 420px;max-width:440px;">
+        <span class="section-eyebrow" style="color:var(--brand);">Weekly summary</span>
+        <h2 style="font-weight:500;font-size:30px;letter-spacing:-0.02em;line-height:1.15;margin:10px 0 0;">See your whole week, not just today.</h2>
+        <p style="margin:16px 0 0;color:var(--secondary-text);font-size:16px;line-height:1.6;max-width:38ch;">Track calories against your goal day by day, then drill into daily averages for protein, fats and carbs. Tap any row for the full breakdown.</p>
+      </div>
+
+      <div style="position:relative;flex:0 0 auto;width:100%;max-width:520px;">
+        <img src="images/summary-v1.png" alt="Screenshot of the Weekly Summary tab in Scoff, showing a bar chart of daily calories against goal and a daily averages breakdown for calories, protein, fats and carbs" style="width:100%;display:block;border-radius:32px;">
       </div>
 
     </div>
