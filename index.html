@@ -47,6 +47,9 @@
     .hero-row{flex-direction:column-reverse !important;justify-content:flex-start !important;}
     .hero-copy{align-items:center !important;text-align:center !important;max-width:100% !important;}
     .hero-copy p{max-width:46ch !important;}
+    .meals-row{flex-direction:column !important;text-align:center;}
+    .meals-row > div:first-child{align-items:center !important;display:flex !important;flex-direction:column !important;max-width:100% !important;}
+    .meals-row p{max-width:46ch !important;}
     .nav-links{display:none !important;}
     .feature-grid{grid-template-columns:1fr !important;}
     .plan-grid{grid-template-columns:1fr !important;}
@@ -181,6 +184,25 @@
           <h3 style="font-weight:600;font-size:17px;margin:0 0 6px;letter-spacing:-0.01em;">Weekly insights</h3>
           <p style="margin:0;font-size:15px;line-height:1.5;color:var(--secondary-text);">See sat fat, sugar, fibre and sodium alongside your macros, and track how your week's shaping up at a glance.</p>
         </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Meals spotlight -->
+  <section id="meals" style="padding:64px 0;">
+    <div class="wrap meals-row" style="display:flex;align-items:center;justify-content:center;gap:64px;">
+
+      <div style="flex:1 1 420px;max-width:440px;">
+        <span class="section-eyebrow" style="color:var(--brand);">Your meals</span>
+        <h2 style="font-weight:600;font-size:clamp(28px,4vw,38px);letter-spacing:-0.02em;line-height:1.15;margin:10px 0 0;">Never rebuild a meal from scratch again.</h2>
+        <p style="margin:16px 0 0;color:var(--secondary-text);font-size:16px;line-height:1.6;max-width:38ch;">Save a meal once — photo, macros and all — and log it again in a single tap next time you eat it. Switch to My Foods to browse every custom food you've added, from weekend bakes to meal-prepped leftovers.</p>
+        <a class="pill-btn" href="https://apps.apple.com/au/app/scoff/id6780077468" target="_blank" rel="noopener" style="margin-top:28px;">Download on iOS</a>
+      </div>
+
+      <div style="position:relative;flex:0 0 auto;width:100%;max-width:320px;">
+        <img src="images/meals.png" alt="Screenshot of the Saved Meals tab in Scoff, showing meals like Chicken Pesto Pasta and Biscoff Cheesecake with photos, servings and macros" style="width:100%;display:block;border-radius:32px;">
+        <a href="https://apps.apple.com/au/app/scoff/id6780077468" target="_blank" rel="noopener" style="position:absolute;bottom:-16px;right:16px;display:inline-flex;align-items:center;justify-content:center;height:48px;padding:0 22px;border-radius:999px;background:var(--brand);color:#fff;font-weight:500;font-size:14px;white-space:nowrap;box-shadow:0 14px 30px -12px rgba(67,49,45,0.45);">Get the app</a>
       </div>
 
     </div>
