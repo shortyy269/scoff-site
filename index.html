@@ -59,9 +59,6 @@
 
 <div style="background:var(--surface);">
 
-  <!-- Nav + Hero share one gradient so there's no seam behind the sticky header -->
-  <div style="background:linear-gradient(180deg, #FFF1BF 0%, #EFF6FF 55%, var(--surface) 100%);">
-
   <!-- Nav -->
   <header style="position:sticky;top:0;z-index:50;padding:18px 20px 0;">
     <div class="wrap" style="display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:16px;max-width:640px;padding:10px 10px 10px 20px;border-radius:999px;background:#fff;box-shadow:0 12px 30px -14px rgba(26,26,26,0.18),0 2px 10px -4px rgba(26,26,26,0.08);">
@@ -83,8 +80,11 @@
     </div>
   </header>
 
-  <!-- Hero -->
-  <section id="top" style="padding:56px 0 40px;">
+  <!-- Hero: negative margin pulls the gradient up underneath the transparent
+       sticky header (78px tall) so there's no seam, without nesting the
+       header inside this section — nesting would cap its sticky range to
+       just this section's height, making the nav disappear once scrolled past. -->
+  <section id="top" style="margin-top:-78px;padding:134px 0 40px;background:linear-gradient(180deg, #FFF1BF 0%, #EFF6FF 55%, var(--surface) 100%);">
     <div class="wrap hero-row" style="display:flex;align-items:center;justify-content:center;gap:64px;">
 
       <div class="hero-copy" style="display:flex;flex-direction:column;align-items:flex-start;flex:1 1 460px;max-width:520px;">
@@ -178,8 +178,6 @@
 
     </div>
   </section>
-
-  </div>
 
   <!-- Features -->
   <section id="features" style="padding:64px 0;">
