@@ -3,17 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Privacy Policy — Scoff</title>
+<title>Privacy Policy | Scoff</title>
 <link rel="icon" href="favicon.ico?v=2" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png?v=2">
 <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png?v=2">
 <link rel="apple-touch-icon" href="images/apple-touch-icon.png?v=2">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root{
-    --primary-text:#1A1A1A;
+    --primary-text:#333333;
     --secondary-text:#8A8A8A;
     --surface:#FCFBF9;
     --surface-tint:#F4F3F1;
@@ -24,7 +24,7 @@
   }
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
-  body{margin:0;font-family:'Bricolage Grotesque',system-ui,-apple-system,sans-serif;color:var(--primary-text);background:var(--surface);line-height:1.6;}
+  body{margin:0;font-family:'Figtree',system-ui,-apple-system,sans-serif;color:var(--primary-text);background:var(--surface);line-height:1.6;}
   img{max-width:100%;display:block;}
   a{color:var(--brand);}
   a:hover{color:var(--brand-dark);}
@@ -32,18 +32,19 @@
 
 
   header.site-header{position:sticky;top:0;z-index:50;padding:18px 20px 0;}
-  .nav-inner{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:16px;max-width:640px;padding:10px 10px 10px 20px;border-radius:999px;background:#fff;box-shadow:0 12px 30px -14px rgba(26,26,26,0.18),0 2px 10px -4px rgba(26,26,26,0.08);}
-  .logo{display:inline-flex;align-items:center;justify-self:start;}
-  .nav-links{display:none;align-items:center;gap:24px;justify-self:center;}
+  .nav-inner{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:16px;max-width:1024px;padding:10px 10px 10px 20px;border-radius:999px;background:#fff;box-shadow:0 12px 30px -14px rgba(26,26,26,0.18),0 2px 10px -4px rgba(26,26,26,0.08);}
+  .logo{display:inline-flex;align-items:center;grid-column:1;justify-self:start;}
+  .nav-links{display:none;align-items:center;gap:24px;grid-column:2;justify-self:center;}
   .nav-links a{text-decoration:none;color:var(--primary-text);font-weight:500;font-size:14px;white-space:nowrap;}
   .nav-links a:hover, .nav-links a.active{color:var(--brand);}
-  .nav-cta{display:inline-flex;align-items:center;justify-content:center;height:40px;padding:0 18px;border-radius:999px;background:var(--brand);color:#fff;font-weight:500;font-size:14px;text-decoration:none;white-space:nowrap;justify-self:end;}
+  .nav-cta{display:inline-flex;align-items:center;justify-content:center;height:40px;padding:0 18px;border-radius:999px;background:var(--brand);color:#fff;font-weight:500;font-size:14px;text-decoration:none;white-space:nowrap;grid-column:3;justify-self:end;transition:background .15s ease,transform .15s ease;}
+  .nav-cta:hover{background:var(--brand-dark);color:#fff;transform:translateY(-1px);}
   @media (min-width:720px){ .nav-links{display:flex;} }
 
   main.wrap{padding-top:48px;padding-bottom:56px;}
-  h1{font-weight:500;font-size:20px;letter-spacing:-0.03em;line-height:1.15;margin:0 0 8px;}
+  h1{font-weight:700;font-size:20px;letter-spacing:-0.03em;line-height:1.15;margin:0 0 8px;}
   .updated{color:var(--secondary-text);font-size:14px;margin-bottom:32px;}
-  h2{font-weight:600;font-size:19px;letter-spacing:-0.01em;margin:28px 0 8px;color:var(--primary-text);}
+  h2{font-weight:700;font-size:19px;letter-spacing:-0.01em;margin:28px 0 8px;color:var(--primary-text);}
   p{color:var(--secondary-text);margin:0 0 12px;font-size:15px;}
   ul{color:var(--secondary-text);margin:0 0 12px 20px;font-size:15px;}
   li{margin-bottom:6px;}
@@ -97,17 +98,17 @@
   <h2>Information Collection and Use</h2>
   <p>The Application collects the following information when you use it:</p>
   <ul>
-    <li>Nutrition and dietary information including food logs, calorie goals and macro targets &mdash; stored locally on your device</li>
-    <li>Camera access &mdash; used solely for barcode scanning and meal photos. No images are stored or transmitted externally</li>
+    <li>Nutrition and dietary information including food logs, calorie goals and macro targets, stored locally on your device</li>
+    <li>Camera access, used solely for barcode scanning and meal photos. No images are stored or transmitted externally</li>
   </ul>
-  <p>Most of this information &mdash; including your food logs, calorie goals, macro targets and any weight data &mdash; is stored locally on your device only and is never transmitted to, or accessible by, the Service Provider. Because this information never reaches us, we do not process it as a data controller in the way described in this policy; you remain in control of it at all times, and it is removed automatically if you uninstall the Application. The only information that reaches the Service Provider is described in <em>Third Party Access</em> and <em>Data Retention Policy</em> below (for example, custom foods you choose to submit to the community database).</p>
+  <p>Most of this information, including your food logs, calorie goals, macro targets and any weight data, is stored locally on your device only and is never transmitted to, or accessible by, the Service Provider. Because this information never reaches us, we do not process it as a data controller in the way described in this policy; you remain in control of it at all times, and it is removed automatically if you uninstall the Application. The only information that reaches the Service Provider is described in <em>Third Party Access</em> and <em>Data Retention Policy</em> below (for example, custom foods you choose to submit to the community database).</p>
 
   <h2>Legal Basis for Processing (UK &amp; EU Users)</h2>
-  <p>Where the Service Provider does process personal data &mdash; such as custom food submissions to the community database &mdash; we rely on the following legal bases under the UK GDPR and EU GDPR:</p>
+  <p>Where the Service Provider does process personal data, such as custom food submissions to the community database, we rely on the following legal bases under the UK GDPR and EU GDPR:</p>
   <ul>
-    <li><strong>Consent</strong> &mdash; where you actively choose to submit a custom food to the shared community database</li>
-    <li><strong>Legitimate interests</strong> &mdash; to maintain, secure and improve the Application and the shared food database, in a way that does not override your rights and interests</li>
-    <li><strong>Legal obligation</strong> &mdash; where we need to retain or disclose information to comply with the law</li>
+    <li><strong>Consent:</strong> where you actively choose to submit a custom food to the shared community database</li>
+    <li><strong>Legitimate interests:</strong> to maintain, secure and improve the Application and the shared food database, in a way that does not override your rights and interests</li>
+    <li><strong>Legal obligation:</strong> where we need to retain or disclose information to comply with the law</li>
   </ul>
   <p>Some information you choose to enter into the Application, such as nutrition and dietary logs, may be considered health-related information. As set out above, this information is stored locally on your device and is not transmitted to or processed by the Service Provider. Where any special category data is ever submitted to us directly (for example, in an email to support), our lawful basis for processing it is your explicit consent, given by the act of sending it to us.</p>
 
@@ -115,18 +116,18 @@
   <p>The Application does not use cookies or tracking technologies.</p>
 
   <h2>Your Rights</h2>
-  <p>You may request access to, correction of, restriction of, or deletion of your personal data held by the Service Provider, object to our processing of it, or request a copy of it in a portable format. You may also withdraw any consent you've given at any time. To exercise these rights, contact the Service Provider at <a href="mailto:hello@scoffapp.com.au">hello@scoffapp.com.au</a>.</p>
-  <p>If you are in the United Kingdom or European Union and are not satisfied with how we've handled your personal data, you have the right to lodge a complaint with your local supervisory authority &mdash; in the UK, this is the <a href="https://ico.org.uk/make-a-complaint/" target="_blank" rel="noopener">Information Commissioner's Office (ICO)</a>. We'd appreciate the chance to address your concern directly first at <a href="mailto:hello@scoffapp.com.au">hello@scoffapp.com.au</a>, but you're not required to contact us before contacting the ICO.</p>
+  <p>You may request access to, correction of, restriction of, or deletion of your personal data held by the Service Provider, object to our processing of it, or request a copy of it in a portable format. You may also withdraw any consent you've given at any time. To exercise these rights, contact the Service Provider using our <a href="https://scoffapp.com.au/support.html">contact form</a>.</p>
+  <p>If you are in the United Kingdom or European Union and are not satisfied with how we've handled your personal data, you have the right to lodge a complaint with your local supervisory authority. In the UK, this is the <a href="https://ico.org.uk/make-a-complaint/" target="_blank" rel="noopener">Information Commissioner's Office (ICO)</a>. We'd appreciate the chance to address your concern directly first through our <a href="https://scoffapp.com.au/support.html">contact form</a>, but you're not required to contact us before contacting the ICO.</p>
 
   <h2>Your California Privacy Rights (CCPA/CPRA)</h2>
-  <p>If you are a California resident, you have the right to know what personal information is collected, the right to delete personal information, the right to opt out of the sale or sharing of personal information, and the right to non-discrimination for exercising these rights. To exercise your CCPA/CPRA rights, contact the Service Provider at <a href="mailto:hello@scoffapp.com.au">hello@scoffapp.com.au</a>.</p>
+  <p>If you are a California resident, you have the right to know what personal information is collected, the right to delete personal information, the right to opt out of the sale or sharing of personal information, and the right to non-discrimination for exercising these rights. To exercise your CCPA/CPRA rights, contact the Service Provider using our <a href="https://scoffapp.com.au/support.html">contact form</a>.</p>
 
   <h2>Third Party Access</h2>
   <p>The Service Provider uses the following third party services:</p>
   <ul>
-    <li>Open Food Facts (open-source food database) &mdash; <a href="https://openfoodfacts.org/terms-of-use" target="_blank" rel="noopener">openfoodfacts.org/terms-of-use</a></li>
-    <li>Supabase (community food database) &mdash; <a href="https://supabase.com/privacy" target="_blank" rel="noopener">supabase.com/privacy</a></li>
-    <li>Apple App Store (payments) &mdash; <a href="https://apple.com/legal/privacy" target="_blank" rel="noopener">apple.com/legal/privacy</a></li>
+    <li>Open Food Facts (open-source food database): <a href="https://openfoodfacts.org/terms-of-use" target="_blank" rel="noopener">openfoodfacts.org/terms-of-use</a></li>
+    <li>Supabase (community food database): <a href="https://supabase.com/privacy" target="_blank" rel="noopener">supabase.com/privacy</a></li>
+    <li>Apple App Store (payments): <a href="https://apple.com/legal/privacy" target="_blank" rel="noopener">apple.com/legal/privacy</a></li>
   </ul>
   <p>The Service Provider may disclose information:</p>
   <ul>
@@ -135,11 +136,11 @@
   </ul>
 
   <h2>International Data Transfers</h2>
-  <p>The Service Provider uses Supabase for the community food database, which may store data on servers outside Australia, including outside the United Kingdom and European Economic Area. Where personal data is transferred internationally, we rely on appropriate safeguards recognised under the UK GDPR and EU GDPR &mdash; such as the UK International Data Transfer Agreement (IDTA), the EU Standard Contractual Clauses, or transfers to a jurisdiction covered by an applicable adequacy decision. For more information about Supabase's own safeguards, see <a href="https://supabase.com/privacy" target="_blank" rel="noopener">supabase.com/privacy</a>.</p>
+  <p>The Service Provider uses Supabase for the community food database, which may store data on servers outside Australia, including outside the United Kingdom and European Economic Area. Where personal data is transferred internationally, we rely on appropriate safeguards recognised under the UK GDPR and EU GDPR, such as the UK International Data Transfer Agreement (IDTA), the EU Standard Contractual Clauses, or transfers to a jurisdiction covered by an applicable adequacy decision. For more information about Supabase's own safeguards, see <a href="https://supabase.com/privacy" target="_blank" rel="noopener">supabase.com/privacy</a>.</p>
 
   <h2>Opt-Out Rights</h2>
   <p>You can stop all collection of information by uninstalling the Application.</p>
-  <p>To request deletion of your personal data contact the Service Provider at <a href="mailto:hello@scoffapp.com.au">hello@scoffapp.com.au</a>.</p>
+  <p>To request deletion of your personal data, contact the Service Provider using our <a href="https://scoffapp.com.au/support.html">contact form</a>.</p>
 
   <h2>Data Retention Policy</h2>
   <ul>
@@ -147,10 +148,10 @@
     <li>Community food submissions: retained in the Supabase database indefinitely as anonymised entries not linked to personally identifiable information</li>
     <li>Data required for legal compliance: retained as long as required by applicable law</li>
   </ul>
-  <p>When you create a custom food in the Application, the food's details (such as its name, brand, and nutritional information) are uploaded to a shared community database so that other users of the Application can search for and use it. This submission includes a device identifier and your country, but does not include your name, email address, or any other personally identifying information. Your food diary, weight data, and other personal logs are never shared to the community database. If you would like a custom food you created removed from the community database, please contact the Service Provider at <a href="mailto:hello@scoffapp.com.au">hello@scoffapp.com.au</a>.</p>
+  <p>When you create a custom food in the Application, the food's details (such as its name, brand, and nutritional information) are uploaded to a shared community database so that other users of the Application can search for and use it. This submission includes a device identifier and your country, but does not include your name, email address, or any other personally identifying information. Your food diary, weight data, and other personal logs are never shared to the community database. If you would like a custom food you created removed from the community database, please contact the Service Provider using our <a href="https://scoffapp.com.au/support.html">contact form</a>.</p>
 
   <h2>Children</h2>
-  <p>The Application is not intended for children under 16 years of age. The Service Provider does not knowingly collect personally identifiable information from children. If you believe a child has provided personal information through the Application, please contact <a href="mailto:hello@scoffapp.com.au">hello@scoffapp.com.au</a>.</p>
+  <p>The Application is not intended for children under 16 years of age. The Service Provider does not knowingly collect personally identifiable information from children. If you believe a child has provided personal information through the Application, please contact us using our <a href="https://scoffapp.com.au/support.html">contact form</a>.</p>
 
   <h2>Security</h2>
   <p>The Service Provider is concerned about safeguarding the confidentiality of your information and provides physical, electronic, and procedural safeguards to protect information the Service Provider processes and maintains.</p>
@@ -163,10 +164,10 @@
   <p>This privacy policy is effective as of 2026-08-18.</p>
 
   <h2>Your Consent</h2>
-  <p>By using the Application you consent to the collection and use of information as described in this policy. You may withdraw consent at any time by contacting <a href="mailto:hello@scoffapp.com.au">hello@scoffapp.com.au</a> or by uninstalling the Application.</p>
+  <p>By using the Application you consent to the collection and use of information as described in this policy. You may withdraw consent at any time by contacting us through our <a href="https://scoffapp.com.au/support.html">contact form</a> or by uninstalling the Application.</p>
 
   <h2>Contact Us</h2>
-  <p>If you have any questions regarding privacy while using the Application, or have questions about the practices, please contact the Service Provider via email at <a href="mailto:hello@scoffapp.com.au">hello@scoffapp.com.au</a>.</p>
+  <p>If you have any questions regarding privacy while using the Application, or have questions about the practices, please contact the Service Provider using our <a href="https://scoffapp.com.au/support.html">contact form</a>.</p>
 </main>
 
 <footer>
@@ -178,10 +179,10 @@
       <a href="privacy.html">Privacy Policy</a>
     </div>
     <div class="footer-social">
-      <a href="#" aria-label="Scoff on Instagram">
+      <a href="https://www.instagram.com/scoff.app" target="_blank" rel="noopener" aria-label="Scoff on Instagram">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.052.072 2.694.272.272 2.69.072 7.052.014 8.333 0 8.741 0 12s.014 3.667.072 4.948c.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24s3.667-.014 4.948-.072c4.354-.2 6.782-2.618 6.979-6.98.059-1.281.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.948-.196-4.354-2.617-6.78-6.979-6.98C15.667.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
       </a>
-      <a href="#" aria-label="Scoff on TikTok">
+      <a href="https://www.tiktok.com/@scoffapp" target="_blank" rel="noopener" aria-label="Scoff on TikTok">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.53.02C13.84 0 15.14.01 16.44 0c.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
       </a>
     </div>
